@@ -1,12 +1,22 @@
 from tkinter import *
+from math import sqrt
 
 INPUT_WIDTH = 5
 
 
 def quadratic_solver():
     a_value = float(a_input.get())
-    print(a_value)
+    b_value = float(b_input.get())
+    c_value = float(c_input.get())
 
+    sqrt_value = sqrt((b_value * b_value)-(4 * a_value * c_value))
+    minus_b_value = (-1) * b_value
+    two_a = 2 * a_value
+
+    x1 = round((minus_b_value + sqrt_value)/two_a,2)
+    x2 = round((minus_b_value - sqrt_value)/two_a,2) 
+    x1_value_label.config(text = f"{x1}")
+    x2_value_label.config(text = f"{x2}")
 
 window = Tk()
 # window.minsize(width=400, height=200)
@@ -39,8 +49,8 @@ x1_value_label.grid(column=2, row=2)
 x2_label = Label(text=f"X\u2082 = ")
 x2_label.grid(column=4, row=2)
 
-x1_value_label = Label(text=0)
-x1_value_label.grid(column=5, row=2)
+x2_value_label = Label(text=0)
+x2_value_label.grid(column=5, row=2)
 
 
 
